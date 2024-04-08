@@ -1,4 +1,4 @@
-USE vehicledb; 
+USE vehicledbs; 
 
 -- First Procedures: Lenght of MODEL. 
 -- Enviando los parametros correspondientes podre saber cuantos modelos obtengo por cada parametro enviado. 
@@ -25,7 +25,7 @@ select @quantity_ave as model_name_with_ave,@quantity_DB,@quantity_GT,@quantity_
 
 select * from model;
 
--- -------------------------------------
+
 -- Second Procedures: En este ejemplo es saber a travez de "trasnmission" que modelos pertenecen al parametro pasado.
 -- Tablas que la componen: Model y Engine 
 DROP PROCEDURE IF EXISTS  SP_GetModelByTransmission;
@@ -58,69 +58,27 @@ CREATE PROCEDURE SP_general_information (in c char(10), in p int, ca int)
 BEGIN
 select c as cylinder, p as power, ca as capacity;
 end//
-delimiter // 
+delimiter ;
 
 call SP_general_information(10, 552, 4961);
 
+-- Cuarto Procedures
+-- Insertar mas marcas en la tabla Brand 
+DROP PROCEDURE IF EXISTS sp_add_new_brand;
+DELIMITER // 
 
-
-/*
--- Forth Procedures:
--- 
-DELIMITER $$
-DROP PROCEDURE IF EXISTS sp_calcular_max_min_media$$
-CREATE PROCEDURE sp_calcular_max_min_media(
-  IN capacity int(10),
-    OUT maximo int(255),
-  OUT minimo varchar(50),
-    OUT media int(100)
-)
+CREATE PROCEDURE sp_add_new_brand (IN p_e VARCHAR(50), OUT p_return VARCHAR(100))
 BEGIN
-  SET maximo = (
-    SELECT MAX(id_engine)
-    FROM engine
-        WHERE transmission = capacity);
-  
-  SET minimo = (
-    SELECT MIN(id_engine)
-    FROM engine
-        WHERE transmission  = capacity);
-  
-  SET media = (
-    SELECT AVG(id_engine)
-    FROM engine
-        WHERE transmission  = capacity);
-END
-$$
+    IF p_e = '' THEN 
+        SET p_return = 'Error, empty param';
+    ELSE
+        INSERT INTO brand VALUES (NULL, p_e); 
+        SET p_return = 'OK';
+    END IF;
+END// 
 
 DELIMITER ;
--- NOTA para la tutora: este no me trae ningun valor. Lo que quier es ordenar de menos a mayo o vice versa la columna capacidad
-CALL calcular_max_min_media(6498,@maximo, @minimo, @media);
-SELECT @maximo, @minimo, @media;
 
--- Consulta
-select capacity
-from engine;
+CALL sp_add_new_brand('Rolls-Royce', @p_return);
+SELECT @p_return;
 
--- DROP PROCEDURE sp_calcular_max_min_media;
-
-*/
-
--- --------------------------------------------------
-
-/*
--- Origial syntaxis 
-
-select * 
-from brand
-left join model on brand.id_brand = model.id_brand 
-left join variant on model.id_model = variant.id_model
-left join engine_variant on engine_variant.id_variant = variant.id_variant
-left join engine on engine.id_engine = engine_variant.id_engine
-left join fuel on fuel.id_fuel = engine.id_fuel
-left join variant_feature on variant_feature.id_variant = variant.id_variant
--- left join feature on feature.id_feature = variant_feature.id_feature
-ORDER BY brand.description;
-
-*/ 
--- ---------------------------------------------------

@@ -93,3 +93,25 @@ select FN_by_model_name('%DB_%');
 -- Original syntaxis 
 Select count(*) from model
 where description like '%DB_%'
+
+-- Cuarta funcion: consulta variant name 
+DROP FUNCTION IF EXISTS FN_by_variant_name;
+delimiter // 
+create function FN_by_variant_name (p_id_variant int)
+returns char(45)
+deterministic
+begin
+declare v_variant_name char(45);
+select description 
+into v_variant_name
+from variant
+where id_variant = p_id_variant;
+return v_variant_name;
+end//
+delimiter ; 
+
+select FN_by_variant_name(4);
+
+-- Consulta original
+select description from variant
+where id_variant = 4

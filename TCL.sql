@@ -1,4 +1,4 @@
-USE vehicledb;
+USE vehicledbs;
 select @@sql_safe_updates;
 select @@foreign_key_checks; 
 select @@autocommit; 
@@ -47,6 +47,7 @@ Bonnet Vents in Carbon Fibre, Mirror Caps in Carbon Fibre, Side Gills in Louvere
 Window Surround Finishers in Gloss Black, Wings Badges in Bright Chrome and Green, Seat Adjustment in 16 Ways, 
 Sports Plus Seats');-- Vantage V8 Coupe Vantage Coupe 
 savepoint sp_4;
+-- commit; 
 /* Bentley*/
 
 insert into feature (description) values ('Battery Charger, Bentley Rear Entertainment, Bentley Signature Audio System
@@ -63,6 +64,7 @@ insert into feature (description) values ('Battery Charger, Bentley Rotating Dis
 Head Up Display, Naim for Bentley Premium Audio System, Navigation System, Online Services, Traffic Assist, USB Sockets
 Valet Key, Wireless Phone Charging Pad'); -- CONTINENTAL GT S V8 
 savepoint sp_6;
+-- commit; 
 /*Ferrari*/ 
 
 insert into feature (description) values ('Bi-xenon headlamps with LED DRL lights and turn indicators
@@ -77,6 +79,7 @@ Head protection side curtain airbags in door panel, Infotainment system with map
 Tyre repair kit, 19" alloy wheels with paint finish, Integrated vehicle dynamic control system selector (Race Manettino)
 Battery conditioner, Tail lights with LED modules'); -- Ferrari California T 
 savepoint sp_7;
+-- commit; 
 /*Lamborghini*/
 
 insert into feature (description) values ('4 Standard Speakers, Anti-Theft System, Bluetooth, Board Computer, Brake Calipers In Yellow
@@ -89,6 +92,7 @@ insert into feature (description) values ('Anti-Theft System, Bluetooth, Board C
 Dianthus Forged 20/21 High Gloss Black With Red Central Locking, Dianthus Forged Rims 20/21 High Gloss Black, Engine Bay In Aluminium
 Exterior Details In Matt Carbon Fiber, Fire Extinguisher, Fixed Rear Air Intake In Visible Carbon Fiber, Front Carbon Ceramic
 Brake With Black Caliper'); -- Aventator SV 
+-- commit; 
 
 /*Validar los resgistros insertados*/ 
 select * from feature;

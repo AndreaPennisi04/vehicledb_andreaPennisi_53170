@@ -33,19 +33,17 @@ select * from user where user like  '%sql_comision-53170%';
 show grants for 'sql_comision-53170'@'localhost';
 
 /* Permission to a specific user by table: All allowe the user to have access to all in the table*/ 
-grant all on vehicledb.engine_variant to 'sql_comision_53170'@'localhost'; 
-grant all on vehicledb.engine to 'sql_comision_53170'@'localhost'; 
-grant all on vehicledb.feature to 'sql_comision_53170'@'localhost'; 
-grant all on vehicledb.fuel to 'sql_comision_53170'@'localhost'; 
-grant all on vehicledb.variant to 'sql_comision_53170'@'localhost'; 
-grant all on vehicledb.variant_feature to 'sql_comision_53170'@'localhost'; 
-grant all on vehicledb.LOG_AUDIT to 'sql_comision_53170'@'localhost'; 
-grant all on vehicledb.LOG_AUDIT_2 to 'sql_comision_53170'@'localhost'; 
+-- grant all on vehicledbs.engine to 'sql_comision_53170'@'localhost'; 
+-- grant all on vehicledbs.feature to 'sql_comision_53170'@'localhost'; 
+-- grant all on vehicledbs.fuel to 'sql_comision_53170'@'localhost'; 
+-- grant all on vehicledbs.variant to 'sql_comision_53170'@'localhost'; 
+
+
 select * from user ;
 /* Using revoke */ 
 -- REVOKE ALL PRIVILEGES ON `vehicledb`.`engine_variant` FROM `sql_comision-53170`@`localhost`;
 
 /*Permiso limitado*/ 
-grant select on vehicledb.engine_variant to 'sql_comision_53170'@'localhost' ;  
-grant select , delete on vehicledb.engine_variant to 'sql_comision_53170'@'localhost' ;   
-grant select ,update on vehicledb.engine_variant to newuser@localhost ; 
+grant select on vehicledbs.engine_variant to 'sql_comision_53170'@'localhost' ;  
+grant select , delete on vehicledbs.engine_variant to 'sql_comision_53170'@'localhost' ;   
+grant select ,update on vehicledbs.engine_variant to newuser@localhost ; 
