@@ -1,0 +1,17 @@
+﻿Proceso de instalacion de la base de datos: Vehicledbs
+
+
+Tener instalado una herramienta que les permita poder abrir las carpetas y trabajar en ellas. La herramienta que hemos utilizados fue: https://www.mysql.com/downloads/
+
+
+Pasos y breve descripción 
+1. Abrir la carpeta llamada: vehiscleDb_andreaPennisi
+2. Abrir y ejecutar el archivo basado en la creacion  de las tablas iniciales en esta etapa del proyecto llamada: 1-create_database.sql
+3. Abrir y ejecutar el archivo de “Insercion” de datos llamado: 2-insercion.sql donde se insertara informacion en las distintas tablas de la base de datos.
+4. Abrir y ejecutar el archivo de “Views” llamado: 3-views.sql Esta, a traves de una o mas consultas devolviendo aquellos datos convenientes de mostrar. Nos ahorra tiempo a la hora de la ejecucion de sentencias pesada para llegar a la informacion buscada. 
+5. Abrir y ejecutar el archivo de Funciones llamado: 4-functions.sql donde los datos enviados a traves de uno o mas parametros he invocanco la funcion nos retorna un resultado. 
+6. Abrir y ejecutar el archivo de Stored procedure llamado: 5-stored_procedure.sql donde dependiendo de su sentencia resolvera desde operaciones simples o complejas donde se ejecutan consultas, comparar resultados, actualizan registros o eliminan datos. 
+7. Abrir y ejecutar el archivo de Triggers llamado: 6-triggers.sql donde nos permite hacer un disparador en los momentos de insercion, actualizacion o borrar definiendo que queremos que se dispare escribiendo su logica. 
+8. Abrir y ejecutar el archivo de DCL llamado: 7-DCL.sql. Esto nos permite crea usuarios con distintos permisos parciales, totales o simplemente negar el acceso sobre los diferentes objetos que conforman la base de datos. 
+9. Abrir y ejecutar el archivo de TCL llamado: 8-TCL.sql Donde realizamos un control de transacciones utilizadas para administrar transacciones en la Base de datos.
+10. Abrir y ejecutar el archivo de Backup  llamado: Realizanod una copia de seguridad de los datos originales con el fin de recuperarlos en caso de una falla o perdida.

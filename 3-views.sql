@@ -67,7 +67,7 @@ where brand = 'Aston Martin' from vw_all_schema;
 */
 
 -- Quinta View
-CREATE VIEW model_view AS
+CREATE OR REPLACE VIEW vw_model_view AS
 SELECT * FROM model
 LIMIT 10; 
 

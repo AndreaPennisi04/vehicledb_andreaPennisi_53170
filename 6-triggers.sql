@@ -78,13 +78,13 @@ VALUES (CONCAT('New field:',NEW.description, '- Old field:',OLD.description), 'U
 END//
 DELIMITER //
 
-SELECT * FROM variant ;
+
 UPDATE vehicledbs.variant 
 SET DESCRIPTION = 'Aventator-Roadster' 
-WHERE ID_VARIANT = -- ID_VARIANT_NUMBER;
+WHERE ID_VARIANT = 51;
 SELECT * FROM LOG_AUDIT_2 ;
 
-
+select * from variant 
 -- QUARTO trigger 
 DROP TRIGGER IF EXISTS TRG_LOG_VARIANT_4 
 DELIMITER //
